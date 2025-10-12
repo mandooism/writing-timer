@@ -1,12 +1,16 @@
-import TopicBox from "./components/TopicBox";
 import { useState, useEffect } from "react";
+import TopicBox from "./components/TopicBox";
+import Timer from "./components/Timer";
 import "./reset.css";
 import "./App.css";
 
 const randomFrom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const DEFAULT_TIME_LIMIT = 20; // 분 단위
+const RESET_TIME = -1;
 
 function App() {
-   const [time, setTime] = useState(20); // 분 단위
+   const [timeLimit, setTimeLimit] = useState(20); // 분 단위
+   const [finishedTimeStamp, setFinishedTimeStamp] = useState(RESET_TIME);
    const [topic, setTopic] = useState(null);
    const [bgUrl, setBgUrl] = useState("");
 
@@ -16,13 +20,17 @@ function App() {
       setTopic(randomFrom(data));
    };
 
+   const timeUp = () => {
+      const now = new Date();
+      setFinishedTimeStamp(now.getTime());
+   };
+
    useEffect(() => {
       loadRandomTopic();
+      setFinishedTimeStamp(RESET_TIME);
    }, []);
 
    useEffect(() => {
-       console.log(topic &&  `/assets/backgrounds/${topic.eng}.jpg`)
-
       setBgUrl(
          topic
             ? `/assets/backgrounds/${topic.eng}.jpg`
@@ -38,17 +46,16 @@ function App() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            transition: "background-image 0.3s ease-in-out",
+            transition: "background-image 1.0s ease-in-out, filter 1.0s ease",
+            filter: finishedTimeStamp > 0 ? "blur(20px)" : "none",
          }}
       >
-         {" "}
          <TopicBox onTopicClick={loadRandomTopic} topic={topic} />
-         <div className="timer">{String(time).padStart(2, "0")}:00</div>
-         <div className="time-buttons">
-            <button onClick={() => setTime(10)}>10분</button>
-            <button onClick={() => setTime(20)}>20분</button>
-            <button onClick={() => setTime(30)}>30분</button>
-         </div>
+         <Timer
+            setTimeLimit={setTimeLimit}
+            timeLimit={timeLimit}
+            timeUp={timeUp}
+         />
       </div>
    );
 }
