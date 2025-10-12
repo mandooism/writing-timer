@@ -31,7 +31,7 @@ export default defineConfig([
                varsIgnorePattern: "^[A-Z_]",
             },
          ],
-         indent: ["error", 8],
+         indent: ["error", 4],
          semi: ["error", "always"],
       },
    },
