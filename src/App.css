@@ -1,42 +1,47 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+.app {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   width: 100vw;
+   font-family: sans-serif;
+   background-color: #f5f5f5;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.topic {
+   font-size: 2rem; /* ✅ 더 큼직한 크기 */
+   font-weight: bold; /* ✅ 더 눈에 띄게 */
+   margin-bottom: 2rem;
+   cursor: pointer;
+   padding: 1rem 2rem;
+   background: #ffffffcc; /* ✅ 약간 투명한 흰색 (더 부드럽게) */
+   border-radius: 16px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+   transition: transform 0.2s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.topic:hover {
+   transform: scale(1.02); /* ✅ 마우스 올릴 때 약간 커지게 */
 }
 
-.card {
-  padding: 2em;
+.timer {
+   font-size: 4rem;
+   font-weight: bold;
+   margin-bottom: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.time-buttons button {
+   margin: 0 0.5rem;
+   padding: 0.75rem 1.25rem;
+   font-size: 1rem;
+   border: none;
+   border-radius: 8px;
+   background-color: #ddd;
+   cursor: pointer;
+}
+
+.time-buttons button:hover {
+   background-color: #ccc;
 }
