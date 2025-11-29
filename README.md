@@ -14,16 +14,19 @@
 ## 설치 및 실행
 
 1. 저장소 클론
+
 ```shell
 git clone https://github.com/your-username/writing-timer.git cd writing-timer
 ```
 
 2. 의존성 설치
+
 ```shell
 npm install
 ```
 
 3. 개발 서버 실행
+
 ```shell
 npm run dev
 ```
@@ -31,9 +34,9 @@ npm run dev
 ## 폴더 구조
 
 - `src/` : 주요 소스 코드
-    - `App.jsx` : 메인 컴포넌트
-    - `components/Timer.jsx` : 타이머 UI
-    - `components/TopicBox.jsx` : 주제 박스 UI
-    - `App.css` : 전체 스타일
+   - `App.jsx` : 메인 컴포넌트
+   - `components/Timer.jsx` : 타이머 UI
+   - `components/TopicBox.jsx` : 주제 박스 UI
+   - `App.css` : 전체 스타일
 - `public/assets/backgrounds/` : 배경 이미지
 - `public/topics.json` : 주제 데이터
