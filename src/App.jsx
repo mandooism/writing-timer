@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { useState, useEffect } from "react";
 import TopicBox from "./components/TopicBox";
 import Timer from "./components/Timer";
@@ -56,6 +57,7 @@ function App() {
             timeLimit={timeLimit}
             timeUp={timeUp}
          />
+         <Analytics />
       </div>
    );
 }
